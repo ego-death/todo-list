@@ -37,7 +37,6 @@ app.post('/addTask', urlencodedParser, (req, res) => {
         'percentComplete': 0
     })
         .then(data => {
-            console.log('Task has been inserted successfully');
             res.redirect('/');
         })
         .catch(err => {
@@ -46,7 +45,6 @@ app.post('/addTask', urlencodedParser, (req, res) => {
 })
 
 app.put('/updateComplete', (req, res) => {
-    console.log(req.body);
     db.collection('tasks').updateOne({ taskName: req.body.taskName, percentComplete: req.body.percComp },
         {
             $set: {

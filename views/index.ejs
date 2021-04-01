@@ -24,7 +24,11 @@
                 <span>Priority: <%= info[i].taskpriority%>|</span>
                 <span>Percent Complete: <%= info[i].percentComplete%>%</span>
                 <a href="#" class="delete">Delete</a>
-                <a href="#" class="complete">Add 25% completion</a>
+                <% if(info[i].percentComplete == 75){%>
+                    <a href="#" class="delete">Add 25% completion</a>
+                <%}else{%>
+                    <a href="#" class="complete">Add 25% completion</a>
+                <%}%>
             </li>
         <%}%>
     </ul>
