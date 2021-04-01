@@ -26,10 +26,15 @@ app.get('/', (req, res) => {
     .catch(err => {
         console.log(err);
     })
-})
+});
 
 app.post('/addTask', urlencodedParser, (req, res) => {
-    db.collection('tasks').insertOne(req.body)
+    db.collection('tasks').insertOne({
+        'taskName': req.body.taskName,
+        'taskDuration': req.body.taskDuration,
+        'taskpriority': req.body.taskPriority,
+        'percentComplete': 0
+    })
     .then(data => {
         console.log('Task has been inserted successfully');
         res.redirect('/');
@@ -38,6 +43,16 @@ app.post('/addTask', urlencodedParser, (req, res) => {
         console.log(err);
     })
 })
+
+app.delete('/deleteTask', (req, res) => {
+    db.collection('tasks').deleteOne({taskName: req.body.taskName})
+    .then(data => {
+        res.json('Done');
+    })
+    .catch(err => {
+        console.log(err);
+    })
+});
 
 app.listen(process.env.PORT, (err) => {
     if(err) console.log(err);

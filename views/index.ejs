@@ -21,9 +21,13 @@
             <li>
                 <span>Task: <%= info[i].taskName%>|</span>
                 <span>Duration: <%= info[i].taskDuration%>|</span>
-                <span>Priority: <%= info[i].taskPriority%>|</span>
+                <span>Priority: <%= info[i].taskpriority%>|</span>
+                <span>Percent Complete: <%= info[i].percentComplete%>%</span>
+                <a href="#" class="delete">Delete</a>
+                <a href="#" class="complete">Add 25% completion</a>
             </li>
         <%}%>
     </ul>
+    <script src="main.js"></script>
 </body>
 </html>
