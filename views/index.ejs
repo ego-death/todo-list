@@ -13,14 +13,15 @@
         <label for="taskName">Description of task: </label><input type="text" name="taskName" id="taskName">
         <label for="taskDuration">Duration of task: </label><input type="text" name="taskDuration" id="taskDuration">
         <label for="taskPriority">Priority of task (1-10): </label><input type="number" name="taskPriority" id="taskPriority">
+        <input type="submit" value="submit value">
     </form>
     <h2>YOUR TASKS:</h2>
     <ul>
         <% for(let i=0;i<info.length;i++){%>
             <li>
-                <span>Task: <%= info[i].taskName%></span>
-                <span>Duration: <%= info[i].taskDuration%></span>
-                <span>Priority: <%= info[i].taskPriority%></span>
+                <span>Task: <%= info[i].taskName%>|</span>
+                <span>Duration: <%= info[i].taskDuration%>|</span>
+                <span>Priority: <%= info[i].taskPriority%>|</span>
             </li>
         <%}%>
     </ul>
