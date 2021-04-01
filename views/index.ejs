@@ -7,6 +7,22 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello World!</h1>
+    <h1>TODO LIST</h1>
+    <h2>ADD A TASK:</h2>
+    <form action="/addTask" method="POST">
+        <label for="taskName">Description of task: </label><input type="text" name="taskName" id="taskName">
+        <label for="taskDuration">Duration of task: </label><input type="text" name="taskDuration" id="taskDuration">
+        <label for="taskPriority">Priority of task (1-10): </label><input type="number" name="taskPriority" id="taskPriority">
+    </form>
+    <h2>YOUR TASKS:</h2>
+    <ul>
+        <% for(let i=0;i<info.length;i++){%>
+            <li>
+                <span>Task: <%= info[i].taskName%></span>
+                <span>Duration: <%= info[i].taskDuration%></span>
+                <span>Priority: <%= info[i].taskPriority%></span>
+            </li>
+        <%}%>
+    </ul>
 </body>
 </html>
